@@ -1,0 +1,56 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: ApenftTokenContract
+    network: rinkeby
+    source:
+      address: "0x13eBC0a1fEe2F7E5A1809712957229B70fd77BF2"
+      abi: ApenftTokenContract
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Deprecate
+        - RequestScheduled
+        - RequestExecuted
+        - Issue
+        - Redeem
+        - Cancelled
+        - DelayTimeChange
+        - Pause
+        - Unpause
+        - OwnershipTransferred
+        - Approval
+        - Transfer
+      abis:
+        - name: ApenftTokenContract
+          file: ./abis/ApenftTokenContract.json
+      eventHandlers:
+        - event: Deprecate(address)
+          handler: handleDeprecate
+        - event: RequestScheduled(indexed uint256,uint8,uint256,uint256)
+          handler: handleRequestScheduled
+        - event: RequestExecuted(indexed uint256,uint8,uint256)
+          handler: handleRequestExecuted
+        - event: Issue(uint256)
+          handler: handleIssue
+        - event: Redeem(uint256)
+          handler: handleRedeem
+        - event: Cancelled(indexed uint256)
+          handler: handleCancelled
+        - event: DelayTimeChange(uint256,uint256)
+          handler: handleDelayTimeChange
+        - event: Pause()
+          handler: handlePause
+        - event: Unpause()
+          handler: handleUnpause
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/apenft-token-contract.ts
