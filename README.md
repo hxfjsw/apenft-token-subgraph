@@ -1,6 +1,7 @@
 # ERC20 subgraph
 
-Work in progress. Do not use.
+
+https://thegraph.com/studio/subgraph/apenft-token/
 
 ```
 query{
