@@ -26,24 +26,24 @@ dataSources:
           handler: handleTransfer
 
   - kind: ethereum/contract
-      name: WinkToken
-      network: rinkeby
-      source:
-        abi: ERC20
-        address: "0xa1c10bff87d045a44505bc2a8e3854b328a42b4c"
-        startBlock: 10357682
-      mapping:
-        file: ./src/mappings/token.ts
-        kind: ethereum/events
-        apiVersion: 0.0.5
-        language: wasm/assemblyscript
-        abis:
-          - name: ERC20
-            file: ./src/abis/ERC20.json
-        entities:
-          - Token
-        eventHandlers:
-          - event: Approval(indexed address,indexed address,uint256)
-            handler: handleApproval
-          - event: Transfer(indexed address,indexed address,uint256)
-            handler: handleTransfer
+    name: WinkTokenContract
+    network: rinkeby
+    source:
+      abi: ERC20
+      address: "0xa1c10bff87d045a44505bc2a8e3854b328a42b4c"
+      startBlock: 10357682
+    mapping:
+      file: ./src/mappings/token.ts
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      abis:
+        - name: ERC20
+          file: ./src/abis/ERC20.json
+      entities:
+        - Token
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
