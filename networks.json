@@ -2,6 +2,9 @@
   "rinkeby": {
     "ApenftTokenContract": {
       "address": "0x13eBC0a1fEe2F7E5A1809712957229B70fd77BF2"
+    },
+    "WinkTokenContract": {
+      "address": "0xa1c10bff87d045a44505bc2a8e3854b328a42b4c"
     }
   }
 }
